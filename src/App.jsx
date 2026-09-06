@@ -38,3 +38,13 @@ function App() {
 
   const currentCode = useMemo(() => {
     const motionType = activeConcept.engine;
+    if (motionType === 'bouncingBall') return calculateBouncingBall(params);
+    if (motionType === 'spring') return calculateSpring(params);
+    if (motionType === 'pendulum') return calculatePendulum(params);
+    if (motionType === 'projectile2D') return calculateProjectile2D(params);
+    if (motionType === 'friction') return calculateFriction(params);
+    if (motionType === 'orbital') return calculateOrbital({ ...params, initialVelocity: params.orbitalVelocity, distance: params.orbitalDistance });
+    if (motionType === 'fluidDrag') return calculateFluidDrag(params);
+    if (motionType === 'particles') return calculateParticles(params);
+    return null;
+  }, [activeConcept, params]);
