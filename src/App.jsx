@@ -78,3 +78,13 @@ function App() {
           <LivePreview 
             motionType={activeConcept.engine} 
             currentCode={currentCode} 
+             compareMode={compareMode}
+            isGenerating={isGenerating}
+            isGenerated={isGenerated}
+          />
+          <div style={{ height: '2rem' }}></div>
+          <CodeOutput 
+             currentCode={currentCode} 
+             motionType={activeConcept.engine} 
+             compareMode={compareMode} 
+             isGenerating={isGenerating}
