@@ -8,3 +8,13 @@
   --text-secondary: #94a3b8;
   --accent-color: #38bdf8;
   --accent-glow: rgba(56, 189, 248, 0.5);
+  }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
