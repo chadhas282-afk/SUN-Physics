@@ -58,3 +58,13 @@ function App() {
           <p>Mathematically accurate animation engineering.</p>
         </div>
       </header>
+
+ <main className="main-content">
+        <div className="left-column fade-in-left">
+          <ControlPanel 
+            activeConcept={activeConcept}
+            onOpenModal={() => setIsModalOpen(true)}
+            params={params}
+            setParams={setParams}
+            compareMode={compareMode}
+            setCompareMode={setCompareMode}
