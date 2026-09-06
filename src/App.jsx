@@ -27,3 +27,14 @@ function App() {
     setIsModalOpen(false);
     setIsGenerated(false);
   };
+
+  const handleGenerate = () => {
+    setIsGenerating(true);
+    setTimeout(() => {
+      setIsGenerating(false);
+      setIsGenerated(true);
+    }, 4000);
+  };
+
+  const currentCode = useMemo(() => {
+    const motionType = activeConcept.engine;
