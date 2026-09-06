@@ -8,7 +8,7 @@ import { calculateBouncingBall, calculateSpring, calculatePendulum, calculatePro
 import logo from './assets/logo.jpg';
 
 function App() {
-    const [activeConcept, setActiveConcept] = useState(CONCEPTS.find(c => c.id === 'c23'));
+  const [activeConcept, setActiveConcept] = useState(CONCEPTS.find(c => c.id === 'c23'));
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [compareMode, setCompareMode] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -18,7 +18,7 @@ function App() {
     height: 300, gravity: 9.8, restitution: 0.7, mass: 1, stiffness: 100, damping: 10,
     distance: 200, length: 200, angle: 45, velocityX: 50, velocityY: 80, initialVelocity: 300,
     frictionCoefficient: 0.3, starMass: 20000, orbitalVelocity: 100, orbitalDistance: 150, dragCoefficient: 5,
-     ...activeConcept.defaultParams
+    ...activeConcept.defaultParams
   });
 
   const handleSelectConcept = (concept) => {
@@ -59,7 +59,7 @@ function App() {
         </div>
       </header>
 
- <main className="main-content">
+      <main className="main-content">
         <div className="left-column fade-in-left">
           <ControlPanel 
             activeConcept={activeConcept}
@@ -78,7 +78,7 @@ function App() {
           <LivePreview 
             motionType={activeConcept.engine} 
             currentCode={currentCode} 
-             compareMode={compareMode}
+            compareMode={compareMode}
             isGenerating={isGenerating}
             isGenerated={isGenerated}
           />
@@ -98,3 +98,8 @@ function App() {
         onClose={() => setIsModalOpen(false)} 
         onSelect={handleSelectConcept} 
       />
+    </div>
+  );
+}
+
+export default App;
