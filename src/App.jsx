@@ -48,3 +48,13 @@ function App() {
     if (motionType === 'particles') return calculateParticles(params);
     return null;
   }, [activeConcept, params]);
+
+  return (
+    <div className="app-container">
+      <header className="app-header fade-in-down">
+        <img src={logo} className="logo-img" alt="SUN Physics Logo" />
+        <div>
+          <h1>SUN Physics</h1>
+          <p>Mathematically accurate animation engineering.</p>
+        </div>
+      </header>
