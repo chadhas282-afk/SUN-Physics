@@ -68,3 +68,13 @@ function App() {
             setParams={setParams}
             compareMode={compareMode}
             setCompareMode={setCompareMode}
+            onGenerate={handleGenerate}
+            isGenerating={isGenerating}
+          />
+        </div>
+        
+        <div className="right-column fade-in-right">
+          <h2 style={{ marginBottom: '1rem', marginTop: 0 }}>Live Animation</h2>
+          <LivePreview 
+            motionType={activeConcept.engine} 
+            currentCode={currentCode} 
