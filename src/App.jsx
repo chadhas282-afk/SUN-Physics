@@ -18,3 +18,12 @@ function App() {
     height: 300, gravity: 9.8, restitution: 0.7, mass: 1, stiffness: 100, damping: 10,
     distance: 200, length: 200, angle: 45, velocityX: 50, velocityY: 80, initialVelocity: 300,
     frictionCoefficient: 0.3, starMass: 20000, orbitalVelocity: 100, orbitalDistance: 150, dragCoefficient: 5,
+     ...activeConcept.defaultParams
+  });
+
+  const handleSelectConcept = (concept) => {
+    setActiveConcept(concept);
+    setParams(prev => ({ ...prev, ...concept.defaultParams }));
+    setIsModalOpen(false);
+    setIsGenerated(false);
+  };
