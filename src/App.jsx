@@ -88,3 +88,13 @@ function App() {
              motionType={activeConcept.engine} 
              compareMode={compareMode} 
              isGenerating={isGenerating}
+             isGenerated={isGenerated}
+          />
+        </div>
+      </main>
+
+      <ConceptModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        onSelect={handleSelectConcept} 
+      />
