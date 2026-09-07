@@ -328,3 +328,13 @@ pre {
   overflow-x: auto;
   border: 1px solid rgba(255,255,255,0.05);
   color: #a78bfa;
+  }
+
+.fidelity-text {
+  font-size: 0.9rem;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #fbbf24;
+  line-height: 1.5;
