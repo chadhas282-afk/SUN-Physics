@@ -278,3 +278,13 @@ select:focus {
 
 .friction-stage {
   align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+.friction-track {
+  width: 100%;
+  height: 2px;
+  background: var(--panel-border);
+  position: absolute;
+  top: 50%;
+  left: 0;
