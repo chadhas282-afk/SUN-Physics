@@ -158,3 +158,13 @@ select:focus {
 
 .preview-container {
   flex-grow: 1;
+  background: rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.preview-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
