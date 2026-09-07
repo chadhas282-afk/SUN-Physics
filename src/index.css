@@ -268,3 +268,13 @@ select:focus {
 .cannonball {
   width: 24px;
   height: 24px;
+   background: radial-gradient(circle at 30% 30%, #fff, #ef4444);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+  margin-left: -12px;
+  margin-bottom: -12px;
+}
+
+
+.friction-stage {
+  align-items: center !important;
