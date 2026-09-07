@@ -38,3 +38,12 @@ body {
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--panel-border);
 }
+
+.logo-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px var(--accent-glow);
+  border: 2px solid rgba(56, 189, 248, 0.3);
+}
