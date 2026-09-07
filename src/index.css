@@ -178,3 +178,13 @@ select:focus {
 
 .replay-btn {
   position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--panel-border);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
