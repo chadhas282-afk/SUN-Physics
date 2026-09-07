@@ -198,3 +198,13 @@ select:focus {
   background: var(--accent-color);
   border-color: var(--accent-color);
   box-shadow: 0 4px 20px var(--accent-glow);
+   transform: translateY(-2px);
+}
+
+.replay-btn:active {
+  transform: translateY(0);
+}
+
+
+.ball {
+  width: 40px;
