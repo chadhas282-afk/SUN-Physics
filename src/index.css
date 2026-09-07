@@ -108,3 +108,13 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background: var(--panel-border);
+   border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+.glass-panel {
+  background: var(--panel-bg);
+  
+  border: 1px solid var(--panel-border);
