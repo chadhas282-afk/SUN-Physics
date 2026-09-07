@@ -28,3 +28,13 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
+
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--panel-border);
+}
