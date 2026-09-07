@@ -218,3 +218,13 @@ select:focus {
 
 .box {
   width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, #fff, #8b5cf6);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.5);
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+}
+
+.pendulum-arm {
