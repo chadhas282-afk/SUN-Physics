@@ -238,3 +238,12 @@ select:focus {
 }
 
 .pendulum-bob {
+  width: 36px;
+  height: 36px;
+  background: radial-gradient(circle at 30% 30%, #fff, #ef4444);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -18px;
+  left: -16px;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+}
