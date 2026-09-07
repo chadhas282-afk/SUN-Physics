@@ -318,3 +318,13 @@ select:focus {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+pre {
+  background: rgba(0,0,0,0.4);
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  overflow-x: auto;
+  border: 1px solid rgba(255,255,255,0.05);
+  color: #a78bfa;
