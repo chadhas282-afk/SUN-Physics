@@ -228,3 +228,13 @@ select:focus {
 }
 
 .pendulum-arm {
+  width: 4px;
+  height: 200px;
+  background: var(--text-secondary);
+  position: absolute;
+  top: 0;
+  transform-origin: top center;
+  border-radius: 2px;
+}
+
+.pendulum-bob {
