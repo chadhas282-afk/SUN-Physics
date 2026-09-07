@@ -78,3 +78,12 @@ body {
 
 .app-header p {
   color: var(--text-secondary);
+   font-size: 0.9rem;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 450px 1fr;
+  gap: 2rem;
+  height: calc(100vh - 120px);
+}
