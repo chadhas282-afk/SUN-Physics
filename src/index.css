@@ -188,3 +188,13 @@ select:focus {
   cursor: pointer;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.replay-btn:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 20px var(--accent-glow);
