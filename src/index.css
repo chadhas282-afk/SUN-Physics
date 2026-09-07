@@ -148,3 +148,13 @@ select {
   border: 1px solid var(--panel-border);
   color: white;
   border-radius: 8px;
+  outline: none;
+  font-family: inherit;
+}
+
+select:focus {
+  border-color: var(--accent-color);
+}
+
+.preview-container {
+  flex-grow: 1;
