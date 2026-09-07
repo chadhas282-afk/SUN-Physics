@@ -258,3 +258,13 @@ select:focus {
     linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
   background-size: 40px 40px;
 }
+
+.cannonball-container {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+}
+
+.cannonball {
+  width: 24px;
+  height: 24px;
