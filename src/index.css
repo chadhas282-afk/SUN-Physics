@@ -338,3 +338,13 @@ pre {
   border-radius: 8px;
   border-left: 4px solid #fbbf24;
   line-height: 1.5;
+  }
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.data-table table {
+  width: 100%;
