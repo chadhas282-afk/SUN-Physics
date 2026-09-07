@@ -308,3 +308,13 @@ select:focus {
 }
 
 .output-section {
+  margin-bottom: 1.5rem;
+}
+
+.output-section h3 {
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
