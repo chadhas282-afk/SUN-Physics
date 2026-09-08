@@ -438,3 +438,17 @@ data-table th {
   width: 100px;
   height: 100%;
   border-left: 1px dashed var(--accent-color);
+  border-right: 1px dashed var(--accent-color);
+  position: relative;
+}
+
+.droplet {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle at 30% 30%, #fff, #0ea5e9);
+  border-radius: 50%; 
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.5);
+  position: absolute;
+  top: 0;
+  left: 35px;
+}
