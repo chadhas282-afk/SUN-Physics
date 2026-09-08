@@ -638,3 +638,22 @@ data-table th {
 
 .concept-name {
   font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
