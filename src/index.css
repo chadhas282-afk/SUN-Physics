@@ -452,3 +452,19 @@ data-table th {
   top: 0;
   left: 35px;
 }
+
+
+.concept-hero-btn {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(14, 165, 233, 0.2));
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  margin-bottom: 0.5rem;
+  color: white;
