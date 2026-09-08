@@ -958,3 +958,42 @@ input[type=range]:hover::-webkit-slider-thumb {
   align-items: center;
   border-radius: inherit;
 }
+
+skeleton-shimmer {
+  width: 80%;
+  height: 20px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(56, 189, 248, 0.15) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
+  border-radius: 4px;
+}
+
+.skeleton-shimmer.large {
+  height: 200px;
+  width: 60%;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.skeleton-text {
+  color: var(--accent-color);
+  .skeleton-shimmer {
+  width: 80%;
+  height: 20px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(56, 189, 248, 0.15) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
+  border-radius: 4px;
+}
+
+.skeleton-shimmer.large {
+  height: 200px;
+  width: 60%;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.skeleton-text {
+  color: var(--accent-color);
