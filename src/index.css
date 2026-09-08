@@ -898,3 +898,23 @@ input[type=range]:hover::-webkit-slider-thumb {
   bottom: 150%;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.75rem;
+  font-family: var(--font-family);
+  font-weight: normal;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+
+.presets-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 1.5rem;
