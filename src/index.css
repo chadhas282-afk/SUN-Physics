@@ -558,3 +558,23 @@ data-table th {
 }
 
 .modal-header h2 {
+  font-size: 2rem;
+  margin: 0;
+  background: linear-gradient(to right, #fff, var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  padding: 0.5rem;
+}
+
+.icon-btn:hover {
+  opacity: 1;
+}
