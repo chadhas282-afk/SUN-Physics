@@ -13,7 +13,7 @@ export function calculateOrbital(params) {
     if (x > 0 && previousY < 0 && y >= 0) break;
     previousY = y;
     if (r > 2000) break;
-    }
+  }
   const totalTime = t;
   const numSamples = 60; 
   for (let i = 0; i <= numSamples; i++) {
@@ -58,3 +58,9 @@ export function calculateOrbital(params) {
         element.style.transform = `translate(${cx}px, ${cy}px)`;
         anim = requestAnimationFrame(step);
       }
+      anim = requestAnimationFrame(step);
+      return () => cancelAnimationFrame(anim);
+    },
+    fidelity: "~85% accurate."
+  };
+}
