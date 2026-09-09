@@ -58,3 +58,18 @@ export function calculateParticles(params) {
     
     if (t < 3) requestAnimationFrame(step);
   }
+    requestAnimationFrame(step);
+}`;
+
+  return {
+    model: `Particle System (Box-Shadow Trick).\nSimulating ${particleCount} independent kinematic trajectories using a single DOM element's box-shadow property.`,
+    breakdown: [], 
+    totalTime,
+    cssCode,
+    jsCode,
+    runner: (element) => {
+      let startTime = performance.now();
+      let anim;
+      
+      function step(currentTime) {
+        let t = (currentTime - startTime) / 1000;
