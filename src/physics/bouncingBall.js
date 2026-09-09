@@ -18,3 +18,23 @@ export function calculateBouncingBall(params) {
     time += t_up + t_down;
     v = v * e;
   }
+  const totalTime = time;
+  let keyframes = [];
+  keyframes.push(`  0% { transform: translateY(0px); animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }`);
+  bounces.forEach((bounce, i) => {
+    let impactPercent = (bounce.time / totalTime) * 100;
+    keyframes.push(`  ${impactPercent.toFixed(2)}% { transform: translateY(${height.toFixed(2)}px); animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }`);
+    if (i < bounces.length - 1) {
+      let next = bounces[i + 1];
+      let peakPercent = (next.peakTime / totalTime) * 100;
+      let peakY = height - next.peakHeight;
+      keyframes.push(`  ${peakPercent.toFixed(2)}% { transform: translateY(${peakY.toFixed(2)}px); animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }`);
+    }
+  });
+  if (keyframes.length > 0 && !keyframes[keyframes.length - 1].startsWith("  100.00%")) {
+    keyframes.push(`  100% { transform: translateY(${height}px); }`);
+  }
+  const cssCode = `@keyframes bouncingBall {\n${keyframes.join('\n')}\n}`;
+  const jsCode = `function animateBouncingBall(element) {
+  let startTime = performance.now();
+  let g = ${g};
