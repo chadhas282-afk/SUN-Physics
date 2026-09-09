@@ -58,3 +58,23 @@ export function calculateBouncingBall(params) {
       requestAnimationFrame(step);
     }
   }
+    requestAnimationFrame(step);
+}`;
+  return {
+    model: `Projectile motion with inelastic collisions.\nGravity: ${g.toFixed(0)} px/s², Restitution: ${e}`,
+    breakdown: bounces, totalTime, cssCode, jsCode,
+    runner: (element) => {
+      let startTime = performance.now();
+      let currentVelocity = 0; let currentY = 0; let lastTime = startTime; let anim;
+      function step(currentTime) {
+        let dt = (currentTime - lastTime) / 1000;
+        lastTime = currentTime;
+        currentVelocity += g * dt; currentY += currentVelocity * dt;
+        if (currentY >= height) {
+          currentY = height; currentVelocity = -currentVelocity * e;
+          if (Math.abs(currentVelocity) < 10) currentVelocity = 0;
+        }
+        element.style.transform = `translateY(${currentY}px)`;
+        if (Math.abs(currentVelocity) > 0 || currentY < height) anim = requestAnimationFrame(step);
+      }
+      anim = requestAnimationFrame(step);
