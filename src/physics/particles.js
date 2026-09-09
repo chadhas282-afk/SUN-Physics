@@ -43,3 +43,18 @@ export function calculateParticles(params) {
   let startTime = performance.now();
   let g = ${g};
   let jsParticles = ${JSON.stringify(particles)};
+   
+  function step(currentTime) {
+    let t = (currentTime - startTime) / 1000;
+    if (t > 3) t = 3;
+    
+    let shadows = jsParticles.map(p => {
+      let x = p.vx * t;
+      let y = (p.vy * t) + (0.5 * g * t * t);
+      return x + 'px ' + y + 'px 0 2px ' + p.color;
+    });
+    
+    element.style.boxShadow = shadows.join(', ');
+    
+    if (t < 3) requestAnimationFrame(step);
+  }
