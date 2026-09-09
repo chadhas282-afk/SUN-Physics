@@ -28,3 +28,18 @@ export function calculateParticles(params) {
     
     for (let i = 0; i < particles.length; i++) {
       let p = particles[i];
+      let x = p.vx * t;
+      let y = (p.vy * t) + (0.5 * g * t * t);
+      shadows.push(`${x.toFixed(2)}px ${y.toFixed(2)}px 0 2px ${p.color}`);
+    }
+    
+    let percent = (step / numSteps) * 100;
+    keyframes.push(`  ${percent.toFixed(2)}% { box-shadow: ${shadows.join(', ')}; }`);
+  }
+  
+  const cssCode = `@keyframes particleExplosion {\n${keyframes.join('\n')}\n}`;
+  
+  const jsCode = `function animateParticles(element) {
+  let startTime = performance.now();
+  let g = ${g};
+  let jsParticles = ${JSON.stringify(particles)};
