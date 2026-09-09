@@ -8,3 +8,13 @@ export function calculatePendulum(params) {
     let theta = angle * Math.cos(w * t);
     points.push({time: t, angle: theta});
     let percent = (i / numSteps) * 100;
+    keyframes.push(`  ${percent.toFixed(2)}% { transform: rotate(${theta.toFixed(2)}deg); }`);
+  }
+  const cssCode = `@keyframes pendulumSwing {\n${keyframes.join('\n')}\n}`;
+  const jsCode = `function animatePendulum(element) {
+  let startTime = performance.now();
+  let w = ${w}; let initialAngle = ${angle};
+  function step(currentTime) {
+    let t = (currentTime - startTime) / 1000;
+    let theta = initialAngle * Math.cos(w * t);
+    element.style.transform = \`rotate(\${theta}deg)\`;
