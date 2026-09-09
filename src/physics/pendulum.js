@@ -18,3 +18,13 @@ export function calculatePendulum(params) {
     let t = (currentTime - startTime) / 1000;
     let theta = initialAngle * Math.cos(w * t);
     element.style.transform = \`rotate(\${theta}deg)\`;
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}`;
+  return {
+    model: `Simple Pendulum (Small Angle).`, breakdown: points.filter((_,i) => i%5 === 0), totalTime, cssCode, jsCode,
+    runner: (element) => {
+      let startTime = performance.now(); let anim;
+      function step(currentTime) {
+        let t = (currentTime - startTime) / 1000;
