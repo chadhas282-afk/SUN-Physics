@@ -13,3 +13,18 @@ export function calculateParticles(params) {
     let angle = Math.random() * 2 * Math.PI;
     let speed = (Math.random() * 0.5 + 0.5) * explosionForce;
     let colors = ['#f43f5e', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6'];
+     let color = colors[Math.floor(Math.random() * colors.length)];
+    
+    particles.push({
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      color: color
+    });
+  }
+  
+  for (let step = 0; step <= numSteps; step++) {
+    let t = (step / numSteps) * totalTime;
+    let shadows = [];
+    
+    for (let i = 0; i < particles.length; i++) {
+      let p = particles[i];
