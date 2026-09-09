@@ -13,3 +13,18 @@ export function calculateFriction(params) {
   }
   const cssCode = `@keyframes slidingFriction {\n${keyframes.join('\n')}\n}`;
   const jsCode = `function animateFriction(element) {
+  let startTime = performance.now();
+  let v0 = ${v0}; let a = ${a}; let totalT = ${totalTime};
+  function step(currentTime) {
+    let t = (currentTime - startTime) / 1000;
+    if (t > totalT) t = totalT;
+    let x = (v0 * t) + (0.5 * a * t * t);
+    element.style.transform = \`translateX(\${x}px)\`;
+    if (t < totalT) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}`;
+  return {
+    model: `Kinetic Friction.`, breakdown: points, totalTime, cssCode, jsCode,
+    runner: (element) => {
+      let startTime = performance.now(); let anim;
