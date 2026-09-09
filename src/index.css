@@ -1037,3 +1037,23 @@ skeleton-shimmer {
   }
   
   .left-column {
+     margin-bottom: 1rem;
+  }
+  
+  .right-column {
+    padding-right: 0;
+    overflow-y: visible;
+  }
+  
+  .preview-container {
+    min-height: 300px;
+  }
+  
+  .export-tabs {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-header {
+    flex-direction: column;
