@@ -43,3 +43,18 @@ export function calculateOrbital(params) {
 }`;
   return {
     model: `Newtonian Gravity (2-Body Problem).`, breakdown: points, totalTime, cssCode, jsCode,
+    runner: (element) => {
+      let startTime = performance.now();
+      let cx = distance; let cy = 0; let cvx = 0; let cvy = initialVelocity;
+      let lastTime = startTime; let anim;
+      function step(currentTime) {
+        let dt = (currentTime - lastTime) / 1000; 
+        lastTime = currentTime;
+        if (dt > 0.1) dt = 0.1;
+        let r = Math.sqrt(cx*cx + cy*cy);
+        let a = -GM / (r*r);
+        cvx += (a * (cx / r)) * dt; cvy += (a * (cy / r)) * dt;
+        cx += cvx * dt; cy += cvy * dt;
+        element.style.transform = `translate(${cx}px, ${cy}px)`;
+        anim = requestAnimationFrame(step);
+      }
