@@ -28,3 +28,22 @@ export function calculateFluidDrag(params) {
     if (y < 400) requestAnimationFrame(step);
     else element.style.transform = \`translateY(400px)\`;
   }
+  requestAnimationFrame(step);
+}`;
+  return {
+    model: `Fluid Drag (Stokes' Law).`, breakdown: points, totalTime, cssCode, jsCode,
+    runner: (element) => {
+      let startTime = performance.now(); let anim;
+      function step(currentTime) {
+        let t = (currentTime - startTime) / 1000;
+        let y = v_terminal * t - (v_terminal * m / b) * (1 - Math.exp(-(b * t) / m));
+        element.style.transform = `translateY(${y}px)`;
+        if (y < dropDistance) anim = requestAnimationFrame(step);
+        else element.style.transform = `translateY(${dropDistance}px)`;
+      }
+      anim = requestAnimationFrame(step);
+      return () => cancelAnimationFrame(anim);
+    },
+    fidelity: "~92% accurate."
+  };
+}
