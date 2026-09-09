@@ -73,3 +73,18 @@ export function calculateParticles(params) {
       
       function step(currentTime) {
         let t = (currentTime - startTime) / 1000;
+         if (t > totalTime) t = totalTime;
+        
+        let shadows = particles.map(p => {
+          let x = p.vx * t;
+          let y = (p.vy * t) + (0.5 * g * t * t);
+          return `${x}px ${y}px 0 2px ${p.color}`;
+        });
+        
+        element.style.boxShadow = shadows.join(', ');
+        
+        if (t < totalTime) anim = requestAnimationFrame(step);
+      }
+      anim = requestAnimationFrame(step);
+      return () => cancelAnimationFrame(anim);
+    },
