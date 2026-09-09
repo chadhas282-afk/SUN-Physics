@@ -28,3 +28,13 @@ export function calculatePendulum(params) {
       let startTime = performance.now(); let anim;
       function step(currentTime) {
         let t = (currentTime - startTime) / 1000;
+        let theta = angle * Math.cos(w * t);
+        element.style.transform = `rotate(${theta}deg)`;
+        anim = requestAnimationFrame(step);
+      }
+      anim = requestAnimationFrame(step);
+      return () => cancelAnimationFrame(anim);
+    },
+    fidelity: "~90% accurate."
+  };
+}
