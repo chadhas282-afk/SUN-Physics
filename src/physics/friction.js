@@ -28,3 +28,16 @@ export function calculateFriction(params) {
     model: `Kinetic Friction.`, breakdown: points, totalTime, cssCode, jsCode,
     runner: (element) => {
       let startTime = performance.now(); let anim;
+      function step(currentTime) {
+        let t = (currentTime - startTime) / 1000;
+        if (t > totalTime) t = totalTime;
+        let x = (v0 * t) + (0.5 * a * t * t);
+        element.style.transform = `translateX(${x}px)`;
+        if (t < totalTime) anim = requestAnimationFrame(step);
+      }
+      anim = requestAnimationFrame(step);
+      return () => cancelAnimationFrame(anim);
+    },
+    fidelity: "100% accurate."
+  };
+}
