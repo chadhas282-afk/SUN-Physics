@@ -28,3 +28,18 @@ export function calculateOrbital(params) {
   let startTime = performance.now();
   let GM = ${GM}; let x = ${distance}; let y = 0; let vx = 0; let vy = ${initialVelocity};
   let lastTime = startTime;
+  function step(currentTime) {
+    let dt = (currentTime - lastTime) / 1000; 
+    lastTime = currentTime;
+    if (dt > 0.1) dt = 0.1;
+    let r = Math.sqrt(x*x + y*y);
+    let a = -GM / (r*r);
+    vx += (a * (x / r)) * dt; vy += (a * (y / r)) * dt;
+    x += vx * dt; y += vy * dt;
+    element.style.transform = \`translate(\${x}px, \${y}px)\`;
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}`;
+  return {
+    model: `Newtonian Gravity (2-Body Problem).`, breakdown: points, totalTime, cssCode, jsCode,
