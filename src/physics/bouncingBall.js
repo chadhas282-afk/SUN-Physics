@@ -38,3 +38,23 @@ export function calculateBouncingBall(params) {
   const jsCode = `function animateBouncingBall(element) {
   let startTime = performance.now();
   let g = ${g};
+   let height = ${height};
+  let e = ${e};
+  let currentVelocity = 0;
+  let currentY = 0;
+  let lastTime = startTime;
+  function step(currentTime) {
+    let dt = (currentTime - lastTime) / 1000;
+    lastTime = currentTime;
+    currentVelocity += g * dt;
+    currentY += currentVelocity * dt;
+    if (currentY >= height) {
+      currentY = height;
+      currentVelocity = -currentVelocity * e;
+      if (Math.abs(currentVelocity) < 10) currentVelocity = 0;
+    }
+    element.style.transform = \`translateY(\${currentY}px)\`;
+    if (Math.abs(currentVelocity) > 0 || currentY < height) {
+      requestAnimationFrame(step);
+    }
+  }
