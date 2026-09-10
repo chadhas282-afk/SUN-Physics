@@ -1,4 +1,4 @@
-mport React from 'react';
+import React from 'react';
 import { LayoutGrid, Info } from 'lucide-react';
 
 const Tooltip = ({ text }) => (
@@ -18,7 +18,7 @@ export default function ControlPanel({
   onGenerate,
   isGenerating
 }) {
-    const handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setParams(prev => ({ ...prev, [name]: parseFloat(value) || value }));
   };
@@ -47,8 +47,8 @@ export default function ControlPanel({
       <button className="concept-hero-btn fade-in" onClick={onOpenModal}>
         <div className="concept-hero-content">
           <span className="concept-icon-large">{activeConcept.icon}</span>
-          <div className="concept-text"></div>
-          <span className="concept-label">ACTIVE CONCEPT</span>
+          <div className="concept-text">
+            <span className="concept-label">ACTIVE CONCEPT</span>
             <span className="concept-title">{activeConcept.name}</span>
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function ControlPanel({
       <div className="engine-badge">
         <span>Powered by {motionType.toUpperCase()} Engine</span>
       </div>
-           
+      
       <div className="params-divider"></div>
       
       {motionType === 'bouncingBall' && (
@@ -67,4 +67,14 @@ export default function ControlPanel({
             <label>Drop Height: {params.height}px</label>
             <input type="range" name="height" min="100" max="600" value={params.height} onChange={handleChange} />
           </div>
-          <div className="form-group"></div>
+          <div className="form-group">
+            <label>Gravity: {params.gravity} m/s²</label>
+            <input type="range" name="gravity" min="1" max="25" step="0.1" value={params.gravity} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>
+              Restitution: {params.restitution}
+              <Tooltip text="Coefficient of Restitution (e). Ratio of final to initial velocity after collision. 1.0 is perfectly elastic, 0 is perfectly inelastic." />
+            </label>
+            <input type="range" name="restitution" min="0" max="0.99" step="0.05" value={params.restitution} onChange={handleChange} />
+          </div>
