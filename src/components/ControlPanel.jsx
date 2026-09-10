@@ -78,3 +78,13 @@ export default function ControlPanel({
             </label>
             <input type="range" name="restitution" min="0" max="0.99" step="0.05" value={params.restitution} onChange={handleChange} />
           </div>
+           <div className="presets-row">
+            <button className="preset-btn" onClick={() => applyPreset({ gravity: 1.62, restitution: 0.9 })}>Moon Gravity</button>
+            <button className="preset-btn" onClick={() => applyPreset({ gravity: 24.79, restitution: 0.2 })}>Jupiter Gravity</button>
+          </div>
+        </>
+      )}
+
+      {motionType === 'spring' && (
+        <>
+          <div className="form-group"></div>
