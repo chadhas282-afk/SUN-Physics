@@ -18,3 +18,13 @@ export function calculateSpring(params) {
   const jsCode = `function animateSpring(element) {
   let startTime = performance.now();
   let c = ${c}; let w = ${w}; let distance = ${distance};
+  function step(currentTime) {
+    let t = (currentTime - startTime) / 1000;
+    let pos = distance * Math.exp(-c * t) * Math.cos(w * t);
+    element.style.transform = \`translateX(\${pos}px)\`;
+    if (Math.abs(pos) > 0.5) requestAnimationFrame(step);
+    else element.style.transform = \`translateX(0px)\`;
+  }
+  requestAnimationFrame(step);
+}`;
+  return {
