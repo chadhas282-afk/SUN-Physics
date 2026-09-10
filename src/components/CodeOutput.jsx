@@ -47,4 +47,14 @@ export default function PhysicsComponent() {
            <p>Code will appear after generation.</p>
          </div>
       ) : (
-         <></>
+         <>
+         <div className="export-tabs">
+        <button className={`tab-btn ${activeTab === 'css' ? 'active' : ''}`} onClick={() => setActiveTab('css')}>
+          <Code size={16} /> CSS Keyframes
+        </button>
+        <button className={`tab-btn ${activeTab === 'js' ? 'active' : ''}`} onClick={() => setActiveTab('js')}>
+          <FileJson size={16} /> Vanilla JS
+        </button>
+        <button className={`tab-btn ${activeTab === 'react' ? 'active' : ''}`} onClick={() => setActiveTab('react')}>
+          <Layers size={16} /> React Component
+        </button>
