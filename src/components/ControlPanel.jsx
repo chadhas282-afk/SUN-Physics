@@ -109,3 +109,12 @@ export default function ControlPanel({
             <button className="preset-btn" onClick={() => applyPreset({ stiffness: 500, damping: 2 })}>Undamped</button>
             <button className="preset-btn" onClick={() => applyPreset({ stiffness: 100, damping: 50 })}>Overdamped</button>
           </div>
+           </>
+      )}
+
+      {motionType === 'pendulum' && (
+        <>
+          <div className="form-group">
+            <label>Initial Angle: {params.angle}°</label>
+            <input type="range" name="angle" min="5" max="90" value={params.angle} onChange={handleChange} />
+          </div>
