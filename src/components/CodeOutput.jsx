@@ -28,7 +28,7 @@ export default function PhysicsComponent() {
 
   return (
     <div className="code-output glass-panel" style={{ display: 'flex', flexDirection: 'column', minHeight: '350px' }}>
-     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h2 style={{ marginBottom: '1rem' }}>Developer Export Hub</h2>
       </div>
 
@@ -48,7 +48,7 @@ export default function PhysicsComponent() {
          </div>
       ) : (
          <>
-         <div className="export-tabs">
+           <div className="export-tabs">
         <button className={`tab-btn ${activeTab === 'css' ? 'active' : ''}`} onClick={() => setActiveTab('css')}>
           <Code size={16} /> CSS Keyframes
         </button>
@@ -58,7 +58,7 @@ export default function PhysicsComponent() {
         <button className={`tab-btn ${activeTab === 'react' ? 'active' : ''}`} onClick={() => setActiveTab('react')}>
           <Layers size={16} /> React Component
         </button>
-        </div>
+      </div>
 
       <div className="code-block-container">
         <button 
@@ -77,4 +77,14 @@ export default function PhysicsComponent() {
         </pre>
       </div>
       
-      <div className="output-section" style={{ marginTop: '2rem' }}></div>
+      <div className="output-section" style={{ marginTop: '2rem' }}>
+        <h3>Fidelity Disclosure</h3>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+          {currentCode.fidelity}
+        </p>
+      </div>
+      </>
+      )}
+    </div>
+  );
+}
