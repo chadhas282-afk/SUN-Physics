@@ -28,3 +28,13 @@ export default function PhysicsComponent() {
 
   return (
     <div className="code-output glass-panel" style={{ display: 'flex', flexDirection: 'column', minHeight: '350px' }}>
+     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h2 style={{ marginBottom: '1rem' }}>Developer Export Hub</h2>
+      </div>
+
+      {isGenerating ? (
+         <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '2rem' }}>
+           <img src={logo} className="generating-logo" alt="Generating Logo" />
+           <div className="skeleton-shimmer" style={{ width: '100%' }}></div>
+           <div className="skeleton-shimmer" style={{ width: '100%' }}></div>
+           <div className="skeleton-shimmer" style={{ width: '60%' }}></div>
