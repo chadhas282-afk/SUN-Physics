@@ -88,3 +88,13 @@ export default function ControlPanel({
       {motionType === 'spring' && (
         <>
           <div className="form-group"></div>
+          <label>Initial Displacement: {params.distance}px</label>
+            <input type="range" name="distance" min="-300" max="400" value={params.distance} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>
+              Stiffness (k): {params.stiffness}
+              <Tooltip text="Hooke's Law constant. Higher stiffness means a tighter spring that oscillates faster." />
+            </label>
+            <input type="range" name="stiffness" min="10" max="500" value={params.stiffness} onChange={handleChange} />
+          </div>
