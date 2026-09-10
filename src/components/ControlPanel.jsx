@@ -58,3 +58,13 @@ export default function ControlPanel({
       <div className="engine-badge">
         <span>Powered by {motionType.toUpperCase()} Engine</span>
       </div>
+           
+      <div className="params-divider"></div>
+      
+      {motionType === 'bouncingBall' && (
+        <>
+          <div className="form-group">
+            <label>Drop Height: {params.height}px</label>
+            <input type="range" name="height" min="100" max="600" value={params.height} onChange={handleChange} />
+          </div>
+          <div className="form-group"></div>
