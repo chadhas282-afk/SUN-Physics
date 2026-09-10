@@ -58,3 +58,13 @@ export default function PhysicsComponent() {
         <button className={`tab-btn ${activeTab === 'react' ? 'active' : ''}`} onClick={() => setActiveTab('react')}>
           <Layers size={16} /> React Component
         </button>
+        </div>
+
+      <div className="code-block-container">
+        <button 
+          className="copy-btn" 
+          onClick={() => handleCopy(activeTab === 'css' ? currentCode.cssCode : activeTab === 'js' ? currentCode.jsCode : reactSnippet)}
+        >
+          {copied ? <Check size={16} color="#4ade80" /> : <Copy size={16} />}
+        </button>
+        
