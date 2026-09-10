@@ -17,3 +17,14 @@ export default function CodeOutput({ currentCode, motionType, compareMode, isGen
 
   const reactSnippet = `import React from 'react';
 import './physics.css';
+
+export default function PhysicsComponent() {
+  return (
+    <div className="physics-container">
+      <div className="animated-object"></div>
+    </div>
+  );
+}`;
+
+  return (
+    <div className="code-output glass-panel" style={{ display: 'flex', flexDirection: 'column', minHeight: '350px' }}>
