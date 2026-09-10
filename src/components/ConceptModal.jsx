@@ -18,3 +18,13 @@ export default function ConceptModal({ isOpen, onClose, onSelect }) {
         <div className="modal-body">
           {categories.map(category => (
             <div key={category} className="category-section"></div>
+             <h3 className="category-title">{category}</h3>
+              <div className="concept-grid">
+                {CONCEPTS.filter(c => c.category === category).map(concept => (
+                  <div 
+                    key={concept.id} 
+                    className="concept-card"
+                    onClick={() => {
+                      onSelect(concept);
+                      onClose();
+                    }}
