@@ -18,3 +18,13 @@ export default function ControlPanel({
   onGenerate,
   isGenerating
 }) {
+    const handleChange = (e) => {
+    const { name, value } = e.target;
+    setParams(prev => ({ ...prev, [name]: parseFloat(value) || value }));
+  };
+
+  const applyPreset = (presetParams) => {
+    setParams(prev => ({ ...prev, ...presetParams }));
+  };
+
+  const motionType = activeConcept.engine;
