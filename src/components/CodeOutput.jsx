@@ -38,3 +38,13 @@ export default function PhysicsComponent() {
            <div className="skeleton-shimmer" style={{ width: '100%' }}></div>
            <div className="skeleton-shimmer" style={{ width: '100%' }}></div>
            <div className="skeleton-shimmer" style={{ width: '60%' }}></div>
+           <div className="skeleton-shimmer" style={{ width: '40%' }}></div>
+           <div className="skeleton-text">Writing mathematical runner...</div>
+         </div>
+      ) : !isGenerated ? (
+         <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', color: 'var(--text-secondary)' }}>
+           <img src={logo} className="empty-state-logo" alt="Empty State Logo" />
+           <p>Code will appear after generation.</p>
+         </div>
+      ) : (
+         <></>
