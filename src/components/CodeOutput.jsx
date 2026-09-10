@@ -8,3 +8,12 @@ export default function CodeOutput({ currentCode, motionType, compareMode, isGen
   const [copied, setCopied] = useState(false);
 
   if (!currentCode) return null;
+
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const reactSnippet = `import React from 'react';
+import './physics.css';
