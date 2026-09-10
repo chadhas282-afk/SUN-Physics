@@ -98,3 +98,14 @@ export default function ControlPanel({
             </label>
             <input type="range" name="stiffness" min="10" max="500" value={params.stiffness} onChange={handleChange} />
           </div>
+           <div className="form-group">
+            <label>
+              Damping (c): {params.damping}
+              <Tooltip text="Friction/Resistance factor. Higher damping causes the oscillation to decay more rapidly to rest." />
+            </label>
+            <input type="range" name="damping" min="1" max="50" value={params.damping} onChange={handleChange} />
+          </div>
+          <div className="presets-row">
+            <button className="preset-btn" onClick={() => applyPreset({ stiffness: 500, damping: 2 })}>Undamped</button>
+            <button className="preset-btn" onClick={() => applyPreset({ stiffness: 100, damping: 50 })}>Overdamped</button>
+          </div>
