@@ -8,3 +8,13 @@ export function calculateProjectile2D(params) {
     let x = vx * t; let y = (vy0 * t) - (0.5 * g * t * t);
     points.push({time: t, pos: x, peakHeight: y});
     let percent = (i / numSteps) * 100;
+    keyframes.push(`  ${percent.toFixed(2)}% { transform: translate(${x.toFixed(2)}px, ${-y.toFixed(2)}px); }`);
+  }
+  const cssCode = `@keyframes projectileMotion {\n${keyframes.join('\n')}\n}`;
+  const jsCode = `function animateProjectile(element) {
+  let startTime = performance.now();
+  let vx = ${vx}; let vy0 = ${vy0}; let g = ${g};
+  function step(currentTime) {
+    let t = (currentTime - startTime) / 1000;
+    let x = vx * t; let y = (vy0 * t) - (0.5 * g * t * t);
+    element.style.transform = \`translate(\${x}px, \${-y}px)\`;
