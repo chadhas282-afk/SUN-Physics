@@ -28,3 +28,15 @@ export function calculateProjectile2D(params) {
     runner: (element) => {
       let startTime = performance.now(); let anim;
       function step(currentTime) {
+        let t = (currentTime - startTime) / 1000;
+        let x = vx * t; let y = (vy0 * t) - (0.5 * g * t * t);
+        element.style.transform = `translate(${x}px, ${-y}px)`;
+        if (y >= 0) anim = requestAnimationFrame(step);
+        else element.style.transform = `translate(${x}px, 0px)`;
+      }
+      anim = requestAnimationFrame(step);
+      return () => cancelAnimationFrame(anim);
+    },
+    fidelity: "~90% accurate."
+  };
+}
