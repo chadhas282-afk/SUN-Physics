@@ -38,3 +38,13 @@ export default function ControlPanel({
           <input 
             type="checkbox" 
             checked={compareMode} 
+            onChange={e => setCompareMode(e.target.checked)} 
+            style={{ cursor: 'pointer', accentColor: 'var(--accent-color)' }}
+          />
+        </div>
+      </div>
+      
+      <button className="concept-hero-btn fade-in" onClick={onOpenModal}>
+        <div className="concept-hero-content">
+          <span className="concept-icon-large">{activeConcept.icon}</span>
+          <div className="concept-text"></div>
