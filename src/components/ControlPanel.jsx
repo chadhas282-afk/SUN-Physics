@@ -48,3 +48,13 @@ export default function ControlPanel({
         <div className="concept-hero-content">
           <span className="concept-icon-large">{activeConcept.icon}</span>
           <div className="concept-text"></div>
+          <span className="concept-label">ACTIVE CONCEPT</span>
+            <span className="concept-title">{activeConcept.name}</span>
+          </div>
+        </div>
+        <LayoutGrid className="concept-grid-icon" size={24} />
+      </button>
+      
+      <div className="engine-badge">
+        <span>Powered by {motionType.toUpperCase()} Engine</span>
+      </div>
