@@ -17,8 +17,8 @@ export default function ConceptModal({ isOpen, onClose, onSelect }) {
         
         <div className="modal-body">
           {categories.map(category => (
-            <div key={category} className="category-section"></div>
-             <h3 className="category-title">{category}</h3>
+            <div key={category} className="category-section">
+              <h3 className="category-title">{category}</h3>
               <div className="concept-grid">
                 {CONCEPTS.filter(c => c.category === category).map(concept => (
                   <div 
@@ -28,3 +28,16 @@ export default function ConceptModal({ isOpen, onClose, onSelect }) {
                       onSelect(concept);
                       onClose();
                     }}
+                  >
+                    <div className="concept-icon">{concept.icon}</div>
+                    <div className="concept-name">{concept.name}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
