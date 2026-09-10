@@ -18,3 +18,13 @@ export function calculateProjectile2D(params) {
     let t = (currentTime - startTime) / 1000;
     let x = vx * t; let y = (vy0 * t) - (0.5 * g * t * t);
     element.style.transform = \`translate(\${x}px, \${-y}px)\`;
+    if (y >= 0) requestAnimationFrame(step);
+    else element.style.transform = \`translate(\${x}px, 0px)\`;
+  }
+  requestAnimationFrame(step);
+}`;
+  return {
+    model: `2D Projectile Motion.`, breakdown: points.filter((_,i) => i%5 === 0), totalTime, cssCode, jsCode,
+    runner: (element) => {
+      let startTime = performance.now(); let anim;
+      function step(currentTime) {
