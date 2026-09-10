@@ -28,3 +28,13 @@ export function calculateSpring(params) {
   requestAnimationFrame(step);
 }`;
   return {
+    model: `Damped Harmonic Oscillator.\nx(t) = A * e^(-c*t) * cos(ω*t)\nc=${c.toFixed(2)}, ω=${w.toFixed(2)}`,
+    breakdown: points.filter((_,i) => i%5 === 0), totalTime: boundedTime, cssCode, jsCode,
+    runner: (element) => {
+      let startTime = performance.now(); let anim;
+      function step(currentTime) {
+        let t = (currentTime - startTime) / 1000;
+        let pos = distance * Math.exp(-c * t) * Math.cos(w * t);
+        element.style.transform = `translateX(${pos}px)`;
+        if (Math.abs(pos) > 0.5) anim = requestAnimationFrame(step);
+        else element.style.transform = `translateX(0px)`;
