@@ -68,3 +68,13 @@ export default function PhysicsComponent() {
           {copied ? <Check size={16} color="#4ade80" /> : <Copy size={16} />}
         </button>
         
+        <pre>
+          <code>
+            {isGenerated && activeTab === 'css' && currentCode.cssCode}
+            {isGenerated && activeTab === 'js' && currentCode.jsCode}
+            {isGenerated && activeTab === 'react' && reactSnippet}
+          </code>
+        </pre>
+      </div>
+      
+      <div className="output-section" style={{ marginTop: '2rem' }}></div>
