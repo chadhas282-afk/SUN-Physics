@@ -118,3 +118,13 @@ export default function ControlPanel({
             <label>Initial Angle: {params.angle}°</label>
             <input type="range" name="angle" min="5" max="90" value={params.angle} onChange={handleChange} />
           </div>
+          <div className="form-group">
+            <label>Length: {params.length}px</label>
+            <input type="range" name="length" min="50" max="400" value={params.length} onChange={handleChange} />
+          </div>
+          <div className="presets-row">
+            <button className="preset-btn" onClick={() => applyPreset({ angle: 90, length: 300 })}>Max Swing</button>
+            <button className="preset-btn" onClick={() => applyPreset({ angle: 10, length: 100 })}>Fast Ticks</button>
+          </div>
+        </>
+      )}
