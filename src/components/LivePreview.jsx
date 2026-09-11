@@ -8,3 +8,13 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
   const sliderRef = useRef(null);
   const timeDisplayRef = useRef(null);
   const progressFillRef = useRef(null);
+    
+  const [isPlaying, setIsPlaying] = useState(true);
+  const progressRef = useRef(0);
+  
+  const progressRAF = useRef(null);
+  const ghostRAF = useRef(null);
+  const startTimeRef = useRef(0);
+
+  const updateUIProgress = (val) => {
+    progressRef.current = val;
