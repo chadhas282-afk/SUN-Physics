@@ -168,3 +168,14 @@ export default function ControlPanel({
             <button className="preset-btn" onClick={() => applyPreset({ frictionCoefficient: 0.8, initialVelocity: 600 })}>Sandpaper</button>
           </div>
         </>
+         )}
+
+      {motionType === 'orbital' && (
+        <>
+          <div className="form-group">
+            <label>
+              Star Mass (GM): {params.starMass}
+              <Tooltip text="The standard gravitational parameter of the central body. Determines the strength of the gravitational pull." />
+            </label>
+            <input type="range" name="starMass" min="5000" max="100000" step="1000" value={params.starMass} onChange={handleChange} />
+          </div>
