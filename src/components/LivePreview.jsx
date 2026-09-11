@@ -159,3 +159,11 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
        ) : !isGenerated ? (
          <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', color: 'var(--text-secondary)' }}>
            <img src={logo} className="empty-state-logo" alt="Empty State Logo" />
+           <p style={{ fontSize: '1.2rem', fontWeight: '500' }}>Select a concept and click ✨ Generate Concept.</p>
+         </div>
+       ) : (
+         <>
+           <div className={`preview-stage ${motionType}-stage`}>
+             {renderObject('css-element', containerRef)}
+             {compareMode && renderObject('ghost-element', ghostRef, true)}
+           </div>
