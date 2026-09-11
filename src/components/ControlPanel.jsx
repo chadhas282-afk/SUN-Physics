@@ -197,4 +197,14 @@ export default function ControlPanel({
 
       {motionType === 'fluidDrag' && (
         <>
-          <div className="form-group"></div>
+          <div className="form-group">
+            <label>Mass: {params.mass}</label>
+            <input type="range" name="mass" min="0.1" max="100" step="0.1" value={params.mass} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>
+              Drag Coefficient (b): {params.dragCoefficient}
+              <Tooltip text="Stokes' Law viscous drag coefficient. Terminal velocity is reached when drag force equals gravitational force (mg/b)." />
+            </label>
+            <input type="range" name="dragCoefficient" min="1" max="50" step="0.5" value={params.dragCoefficient} onChange={handleChange} />
+          </div>
