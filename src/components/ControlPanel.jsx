@@ -78,7 +78,7 @@ export default function ControlPanel({
             </label>
             <input type="range" name="restitution" min="0" max="0.99" step="0.05" value={params.restitution} onChange={handleChange} />
           </div>
-           <div className="presets-row">
+          <div className="presets-row">
             <button className="preset-btn" onClick={() => applyPreset({ gravity: 1.62, restitution: 0.9 })}>Moon Gravity</button>
             <button className="preset-btn" onClick={() => applyPreset({ gravity: 24.79, restitution: 0.2 })}>Jupiter Gravity</button>
           </div>
@@ -87,8 +87,8 @@ export default function ControlPanel({
 
       {motionType === 'spring' && (
         <>
-          <div className="form-group"></div>
-          <label>Initial Displacement: {params.distance}px</label>
+          <div className="form-group">
+            <label>Initial Displacement: {params.distance}px</label>
             <input type="range" name="distance" min="-300" max="400" value={params.distance} onChange={handleChange} />
           </div>
           <div className="form-group">
@@ -98,7 +98,7 @@ export default function ControlPanel({
             </label>
             <input type="range" name="stiffness" min="10" max="500" value={params.stiffness} onChange={handleChange} />
           </div>
-           <div className="form-group">
+          <div className="form-group">
             <label>
               Damping (c): {params.damping}
               <Tooltip text="Friction/Resistance factor. Higher damping causes the oscillation to decay more rapidly to rest." />
@@ -109,7 +109,7 @@ export default function ControlPanel({
             <button className="preset-btn" onClick={() => applyPreset({ stiffness: 500, damping: 2 })}>Undamped</button>
             <button className="preset-btn" onClick={() => applyPreset({ stiffness: 100, damping: 50 })}>Overdamped</button>
           </div>
-           </>
+        </>
       )}
 
       {motionType === 'pendulum' && (
@@ -139,7 +139,7 @@ export default function ControlPanel({
             <label>Initial Y Velocity: {params.velocityY}</label>
             <input type="range" name="velocityY" min="10" max="150" value={params.velocityY} onChange={handleChange} />
           </div>
-           <div className="form-group">
+          <div className="form-group">
             <label>Gravity: {params.gravity} m/s²</label>
             <input type="range" name="gravity" min="1" max="25" step="0.1" value={params.gravity} onChange={handleChange} />
           </div>
@@ -148,7 +148,7 @@ export default function ControlPanel({
             <button className="preset-btn" onClick={() => applyPreset({ velocityX: 150, velocityY: 30, gravity: 9.8 })}>Flat Line</button>
           </div>
         </>
-        )}
+      )}
 
       {motionType === 'friction' && (
         <>
@@ -168,7 +168,7 @@ export default function ControlPanel({
             <button className="preset-btn" onClick={() => applyPreset({ frictionCoefficient: 0.8, initialVelocity: 600 })}>Sandpaper</button>
           </div>
         </>
-         )}
+      )}
 
       {motionType === 'orbital' && (
         <>
@@ -208,7 +208,7 @@ export default function ControlPanel({
             </label>
             <input type="range" name="dragCoefficient" min="1" max="50" step="0.5" value={params.dragCoefficient} onChange={handleChange} />
           </div>
-           <div className="presets-row">
+          <div className="presets-row">
             <button className="preset-btn" onClick={() => applyPreset({ mass: 100, dragCoefficient: 1 })}>Steel Ball</button>
             <button className="preset-btn" onClick={() => applyPreset({ mass: 0.1, dragCoefficient: 40 })}>Feather</button>
           </div>
@@ -238,3 +238,7 @@ export default function ControlPanel({
       
       <button className="generate-btn" onClick={onGenerate} disabled={isGenerating} style={{ marginTop: '2rem' }}>
         ✨ Generate Concept
+      </button>
+    </div>
+  );
+}
