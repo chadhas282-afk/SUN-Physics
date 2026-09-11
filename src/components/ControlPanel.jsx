@@ -208,3 +208,13 @@ export default function ControlPanel({
             </label>
             <input type="range" name="dragCoefficient" min="1" max="50" step="0.5" value={params.dragCoefficient} onChange={handleChange} />
           </div>
+           <div className="presets-row">
+            <button className="preset-btn" onClick={() => applyPreset({ mass: 100, dragCoefficient: 1 })}>Steel Ball</button>
+            <button className="preset-btn" onClick={() => applyPreset({ mass: 0.1, dragCoefficient: 40 })}>Feather</button>
+          </div>
+        </>
+      )}
+
+      {motionType === 'particles' && (
+        <>
+          <div className="form-group"></div>
