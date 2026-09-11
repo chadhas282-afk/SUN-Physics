@@ -217,4 +217,15 @@ export default function ControlPanel({
 
       {motionType === 'particles' && (
         <>
-          <div className="form-group"></div>
+          <div className="form-group">
+            <label>Particle Count: {params.particleCount}</label>
+            <input type="range" name="particleCount" min="5" max="100" value={params.particleCount} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Explosion Force: {params.explosionForce}</label>
+            <input type="range" name="explosionForce" min="10" max="300" value={params.explosionForce} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Gravity: {params.gravity} m/s²</label>
+            <input type="range" name="gravity" min="0" max="30" step="0.5" value={params.gravity} onChange={handleChange} />
+          </div>
