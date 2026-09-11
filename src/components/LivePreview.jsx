@@ -38,3 +38,13 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
       ghostRef.current.style.transform = 'none';
       ghostRef.current.style.opacity = '0.6';
       void ghostRef.current.offsetWidth;
+       ghostRAF.current = currentCode.runner(ghostRef.current);
+    } else if (ghostRef.current) {
+      ghostRef.current.style.opacity = '0';
+    }
+
+    const updateProgress = (time) => {
+      let elapsed = (time - startTimeRef.current) / 1000;
+      if (elapsed >= currentCode.totalTime) {
+        updateUIProgress(100);
+        setIsPlaying(false);
