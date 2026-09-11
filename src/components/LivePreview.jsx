@@ -8,7 +8,7 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
   const sliderRef = useRef(null);
   const timeDisplayRef = useRef(null);
   const progressFillRef = useRef(null);
-    
+  
   const [isPlaying, setIsPlaying] = useState(true);
   const progressRef = useRef(0);
   
@@ -38,7 +38,7 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
       ghostRef.current.style.transform = 'none';
       ghostRef.current.style.opacity = '0.6';
       void ghostRef.current.offsetWidth;
-       ghostRAF.current = currentCode.runner(ghostRef.current);
+      ghostRAF.current = currentCode.runner(ghostRef.current);
     } else if (ghostRef.current) {
       ghostRef.current.style.opacity = '0';
     }
@@ -48,7 +48,7 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
       if (elapsed >= currentCode.totalTime) {
         updateUIProgress(100);
         setIsPlaying(false);
-        } else {
+      } else {
         updateUIProgress((elapsed / currentCode.totalTime) * 100);
         progressRAF.current = requestAnimationFrame(updateProgress);
       }
@@ -68,7 +68,7 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
       styleTag = document.createElement('style');
       styleTag.id = styleId;
       document.head.appendChild(styleTag);
-       }
+    }
     styleTag.innerHTML = currentCode.cssCode;
     
     setIsPlaying(true);
@@ -78,7 +78,7 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
     const animNameMatch = currentCode.cssCode.match(/@keyframes\s+([a-zA-Z0-9_]+)/);
     const animName = animNameMatch ? animNameMatch[1] : '';
 
-     if (el && animName) {
+    if (el && animName) {
       el.style.animation = 'none';
       void el.offsetWidth;
       el.style.animation = `${animName} ${currentCode.totalTime}s linear forwards`;
@@ -98,7 +98,7 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
     const el = containerRef.current;
     if (el && currentCode) {
       const delaySeconds = (val / 100) * currentCode.totalTime;
-       el.style.animationDelay = `-${delaySeconds}s`;
+      el.style.animationDelay = `-${delaySeconds}s`;
       
       if (isPlaying) {
         stopTracking();
@@ -118,7 +118,7 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
       void el.offsetWidth;
       const animNameMatch = currentCode.cssCode.match(/@keyframes\s+([a-zA-Z0-9_]+)/);
       el.style.animation = `${animNameMatch ? animNameMatch[1] : ''} ${currentCode.totalTime}s linear forwards`;
-       el.style.animationDelay = '0s';
+      el.style.animationDelay = '0s';
       el.style.animationPlayState = 'running';
       startTracking();
       setIsPlaying(true);
@@ -128,7 +128,7 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
       setIsPlaying(false);
     } else {
       el.style.animationPlayState = 'running';
-       startTracking();
+      startTracking();
       setIsPlaying(true);
     }
   };
@@ -178,3 +178,21 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
                  ref={sliderRef}
                  type="range" 
                  min="0" 
+                 max="100" 
+                 step="0.1"
+                 defaultValue="0"
+                 onInput={handleScrub}
+                 className="timeline-slider"
+               />
+               <div className="timeline-progress" ref={progressFillRef} style={{ width: '0%' }}></div>
+             </div>
+             
+             <span className="time-display" ref={timeDisplayRef}>
+               0.00s / {(currentCode?.totalTime || 0).toFixed(2)}s
+             </span>
+           </div>
+         </>
+       )}
+    </div>
+  );
+}
