@@ -87,3 +87,14 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
       
       startTracking();
     }
+
+    return () => stopTracking();
+  }, [currentCode, compareMode, isGenerated]); 
+
+  const handleScrub = (e) => {
+    const val = parseFloat(e.target.value);
+    updateUIProgress(val);
+    
+    const el = containerRef.current;
+    if (el && currentCode) {
+      const delaySeconds = (val / 100) * currentCode.totalTime;
