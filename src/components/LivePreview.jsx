@@ -48,3 +48,13 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
       if (elapsed >= currentCode.totalTime) {
         updateUIProgress(100);
         setIsPlaying(false);
+        } else {
+        updateUIProgress((elapsed / currentCode.totalTime) * 100);
+        progressRAF.current = requestAnimationFrame(updateProgress);
+      }
+    };
+    progressRAF.current = requestAnimationFrame(updateProgress);
+  };
+
+  const stopTracking = () => {
+    if (progressRAF.current) cancelAnimationFrame(progressRAF.current);
