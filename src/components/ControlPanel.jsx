@@ -187,4 +187,14 @@ export default function ControlPanel({
             <label>Distance: {params.orbitalDistance}</label>
             <input type="range" name="orbitalDistance" min="50" max="300" value={params.orbitalDistance} onChange={handleChange} />
           </div>
-          <div className="presets-row"></div>
+          <div className="presets-row">
+            <button className="preset-btn" onClick={() => applyPreset({ starMass: 50000, orbitalVelocity: 22.3, orbitalDistance: 100 })}>Circular</button>
+            <button className="preset-btn" onClick={() => applyPreset({ starMass: 50000, orbitalVelocity: 12, orbitalDistance: 200 })}>Elliptical</button>
+            <button className="preset-btn" onClick={() => applyPreset({ starMass: 50000, orbitalVelocity: 35, orbitalDistance: 80 })}>Escape</button>
+          </div>
+        </>
+      )}
+
+      {motionType === 'fluidDrag' && (
+        <>
+          <div className="form-group"></div>
