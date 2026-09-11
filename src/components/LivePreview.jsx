@@ -167,3 +167,14 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
              {renderObject('css-element', containerRef)}
              {compareMode && renderObject('ghost-element', ghostRef, true)}
            </div>
+
+           <div className="scrubber-bar">
+             <button className="playback-btn" onClick={togglePlay}>
+               {isPlaying ? <Pause size={18} /> : (progressRef.current >= 100 ? <RotateCcw size={18} /> : <Play size={18} />)}
+             </button>
+             
+             <div className="timeline-container">
+               <input 
+                 ref={sliderRef}
+                 type="range" 
+                 min="0" 
