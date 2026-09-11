@@ -128,3 +128,13 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
       setIsPlaying(false);
     } else {
       el.style.animationPlayState = 'running';
+       startTracking();
+      setIsPlaying(true);
+    }
+  };
+
+  const renderObject = (className, ref, isGhost = false) => {
+    const ghostClass = isGhost ? ' ghost-element' : ' css-element';
+    
+    if (motionType === 'bouncingBall') return <div ref={ref} className={`ball${ghostClass}`}></div>;
+    if (motionType === 'spring') return <div ref={ref} className={`box${ghostClass}`}></div>;
