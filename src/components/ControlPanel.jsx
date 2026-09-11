@@ -148,3 +148,13 @@ export default function ControlPanel({
             <button className="preset-btn" onClick={() => applyPreset({ velocityX: 150, velocityY: 30, gravity: 9.8 })}>Flat Line</button>
           </div>
         </>
+        )}
+
+      {motionType === 'friction' && (
+        <>
+          <div className="form-group">
+            <label>Initial Velocity: {params.initialVelocity}</label>
+            <input type="range" name="initialVelocity" min="50" max="800" value={params.initialVelocity} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>
