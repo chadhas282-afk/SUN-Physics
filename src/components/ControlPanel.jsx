@@ -179,3 +179,12 @@ export default function ControlPanel({
             </label>
             <input type="range" name="starMass" min="5000" max="100000" step="1000" value={params.starMass} onChange={handleChange} />
           </div>
+          <div className="form-group">
+            <label>Orbital Velocity: {params.orbitalVelocity}</label>
+            <input type="range" name="orbitalVelocity" min="2" max="50" step="0.1" value={params.orbitalVelocity} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Distance: {params.orbitalDistance}</label>
+            <input type="range" name="orbitalDistance" min="50" max="300" value={params.orbitalDistance} onChange={handleChange} />
+          </div>
+          <div className="presets-row"></div>
