@@ -138,3 +138,12 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
     
     if (motionType === 'bouncingBall') return <div ref={ref} className={`ball${ghostClass}`}></div>;
     if (motionType === 'spring') return <div ref={ref} className={`box${ghostClass}`}></div>;
+    if (motionType === 'pendulum') return <div ref={ref} className={`pendulum-arm${ghostClass}`}><div className="pendulum-bob"></div></div>;
+    if (motionType === 'projectile2D') return <div className="cannonball-container"><div ref={ref} className={`cannonball${ghostClass}`}></div></div>;
+    if (motionType === 'friction') return <div className="friction-track"><div ref={ref} className={`friction-block${ghostClass}`}></div></div>;
+    if (motionType === 'orbital') return <div className="orbital-system"><div className="star"></div><div ref={ref} className={`planet${ghostClass}`}></div></div>;
+    if (motionType === 'fluidDrag') return <div className="fluid-container"><div ref={ref} className={`droplet${ghostClass}`}></div></div>;
+    if (motionType === 'particles') return <div className="particle-system" ref={ref}><div className={`particle${ghostClass}`}></div></div>;
+    
+    return null;
+  };
