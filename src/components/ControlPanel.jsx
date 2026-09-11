@@ -158,3 +158,13 @@ export default function ControlPanel({
           </div>
           <div className="form-group">
             <label>
+              Kinetic Friction (µ): {params.frictionCoefficient}
+              <Tooltip text="Coefficient of Kinetic Friction. Determines how aggressively the surface decelerates the object sliding across it." />
+            </label>
+            <input type="range" name="frictionCoefficient" min="0.01" max="1" step="0.01" value={params.frictionCoefficient} onChange={handleChange} />
+          </div>
+          <div className="presets-row">
+            <button className="preset-btn" onClick={() => applyPreset({ frictionCoefficient: 0.01, initialVelocity: 400 })}>Ice</button>
+            <button className="preset-btn" onClick={() => applyPreset({ frictionCoefficient: 0.8, initialVelocity: 600 })}>Sandpaper</button>
+          </div>
+        </>
