@@ -58,3 +58,13 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
 
   const stopTracking = () => {
     if (progressRAF.current) cancelAnimationFrame(progressRAF.current);
+    if (ghostRAF.current) cancelAnimationFrame(ghostRAF.current);
+  };
+  useEffect(() => {
+    if (!isGenerated || !currentCode?.cssCode) return;
+    const styleId = 'physics-animator-style';
+    let styleTag = document.getElementById(styleId);
+    if (!styleTag) {
+      styleTag = document.createElement('style');
+      styleTag.id = styleId;
+      document.head.appendChild(styleTag);
