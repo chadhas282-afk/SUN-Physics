@@ -98,3 +98,12 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
     const el = containerRef.current;
     if (el && currentCode) {
       const delaySeconds = (val / 100) * currentCode.totalTime;
+       el.style.animationDelay = `-${delaySeconds}s`;
+      
+      if (isPlaying) {
+        stopTracking();
+        el.style.animationPlayState = 'paused';
+        setIsPlaying(false);
+      }
+    }
+  };
