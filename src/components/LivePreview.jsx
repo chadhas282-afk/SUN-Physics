@@ -107,3 +107,14 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
       }
     }
   };
+
+  const togglePlay = () => {
+    const el = containerRef.current;
+    if (!el || !currentCode) return;
+
+    if (progressRef.current >= 100) {
+      updateUIProgress(0);
+      el.style.animation = 'none';
+      void el.offsetWidth;
+      const animNameMatch = currentCode.cssCode.match(/@keyframes\s+([a-zA-Z0-9_]+)/);
+      el.style.animation = `${animNameMatch ? animNameMatch[1] : ''} ${currentCode.totalTime}s linear forwards`;
