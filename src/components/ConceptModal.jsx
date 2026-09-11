@@ -1,5 +1,5 @@
 import React from 'react';
-import { CONCEPTS } from '../concepts';
+import { CONCEPTS } from '../concepts.js';
 import { X } from 'lucide-react';
 
 export default function ConceptModal({ isOpen, onClose, onSelect }) {

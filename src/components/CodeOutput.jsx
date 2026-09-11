@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LivePreview from './LivePreview';
+import LivePreview from './LivePreview.jsx';
 import { Copy, Check, Code, FileJson, Layers } from 'lucide-react';
 import logo from '../assets/logo.jpg';
 
