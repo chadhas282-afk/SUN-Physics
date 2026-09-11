@@ -128,3 +128,14 @@ export default function ControlPanel({
           </div>
         </>
       )}
+
+      {motionType === 'projectile2D' && (
+        <>
+          <div className="form-group">
+            <label>Initial X Velocity: {params.velocityX}</label>
+            <input type="range" name="velocityX" min="10" max="150" value={params.velocityX} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Initial Y Velocity: {params.velocityY}</label>
+            <input type="range" name="velocityY" min="10" max="150" value={params.velocityY} onChange={handleChange} />
+          </div>
