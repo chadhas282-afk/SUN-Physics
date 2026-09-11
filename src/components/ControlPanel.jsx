@@ -139,3 +139,12 @@ export default function ControlPanel({
             <label>Initial Y Velocity: {params.velocityY}</label>
             <input type="range" name="velocityY" min="10" max="150" value={params.velocityY} onChange={handleChange} />
           </div>
+           <div className="form-group">
+            <label>Gravity: {params.gravity} m/s²</label>
+            <input type="range" name="gravity" min="1" max="25" step="0.1" value={params.gravity} onChange={handleChange} />
+          </div>
+          <div className="presets-row">
+            <button className="preset-btn" onClick={() => applyPreset({ velocityX: 100, velocityY: 150, gravity: 9.8 })}>High Arc</button>
+            <button className="preset-btn" onClick={() => applyPreset({ velocityX: 150, velocityY: 30, gravity: 9.8 })}>Flat Line</button>
+          </div>
+        </>
