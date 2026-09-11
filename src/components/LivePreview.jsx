@@ -18,3 +18,13 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
 
   const updateUIProgress = (val) => {
     progressRef.current = val;
+    if (sliderRef.current) sliderRef.current.value = val;
+    if (progressFillRef.current) progressFillRef.current.style.width = `${val}%`;
+    if (timeDisplayRef.current && currentCode) {
+      timeDisplayRef.current.innerText = `${((val / 100) * currentCode.totalTime).toFixed(2)}s / ${currentCode.totalTime.toFixed(2)}s`;
+    }
+  };
+
+  const startTracking = () => {
+    if (progressRAF.current) cancelAnimationFrame(progressRAF.current);
+    if (ghostRAF.current) cancelAnimationFrame(ghostRAF.current);
