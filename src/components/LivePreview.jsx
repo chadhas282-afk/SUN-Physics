@@ -68,3 +68,12 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
       styleTag = document.createElement('style');
       styleTag.id = styleId;
       document.head.appendChild(styleTag);
+       }
+    styleTag.innerHTML = currentCode.cssCode;
+    
+    setIsPlaying(true);
+    updateUIProgress(0);
+    
+    const el = containerRef.current;
+    const animNameMatch = currentCode.cssCode.match(/@keyframes\s+([a-zA-Z0-9_]+)/);
+    const animName = animNameMatch ? animNameMatch[1] : '';
