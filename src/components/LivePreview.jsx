@@ -77,3 +77,13 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
     const el = containerRef.current;
     const animNameMatch = currentCode.cssCode.match(/@keyframes\s+([a-zA-Z0-9_]+)/);
     const animName = animNameMatch ? animNameMatch[1] : '';
+
+     if (el && animName) {
+      el.style.animation = 'none';
+      void el.offsetWidth;
+      el.style.animation = `${animName} ${currentCode.totalTime}s linear forwards`;
+      el.style.animationDelay = '0s';
+      el.style.animationPlayState = 'running';
+      
+      startTracking();
+    }
