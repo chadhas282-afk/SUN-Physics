@@ -28,3 +28,13 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
   const startTracking = () => {
     if (progressRAF.current) cancelAnimationFrame(progressRAF.current);
     if (ghostRAF.current) cancelAnimationFrame(ghostRAF.current);
+
+    if (!currentCode) return;
+
+    const delaySeconds = (progressRef.current / 100) * currentCode.totalTime;
+    startTimeRef.current = performance.now() - (delaySeconds * 1000);
+    
+    if (compareMode && ghostRef.current && currentCode.runner && progressRef.current === 0) {
+      ghostRef.current.style.transform = 'none';
+      ghostRef.current.style.opacity = '0.6';
+      void ghostRef.current.offsetWidth;
