@@ -147,3 +147,15 @@ export default function LivePreview({ motionType, currentCode, compareMode, isGe
     
     return null;
   };
+
+  return (
+    <div className="preview-container" style={{ borderRadius: '12px', border: '1px solid var(--panel-border)', display: 'flex', flexDirection: 'column' }}>
+       {isGenerating ? (
+         <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '2rem' }}>
+           <img src={logo} className="generating-logo" alt="Generating Logo" />
+           <div className="skeleton-shimmer large"></div>
+           <div className="skeleton-text">SUN is revising the concept and generating...</div>
+         </div>
+       ) : !isGenerated ? (
+         <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', color: 'var(--text-secondary)' }}>
+           <img src={logo} className="empty-state-logo" alt="Empty State Logo" />
