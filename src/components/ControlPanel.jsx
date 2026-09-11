@@ -229,3 +229,12 @@ export default function ControlPanel({
             <label>Gravity: {params.gravity} m/s²</label>
             <input type="range" name="gravity" min="0" max="30" step="0.5" value={params.gravity} onChange={handleChange} />
           </div>
+          <div className="presets-row">
+            <button className="preset-btn" onClick={() => applyPreset({ particleCount: 100, explosionForce: 250, gravity: 20 })}>Massive</button>
+            <button className="preset-btn" onClick={() => applyPreset({ particleCount: 20, explosionForce: 50, gravity: 0 })}>Zero-G Burst</button>
+          </div>
+        </>
+      )}
+      
+      <button className="generate-btn" onClick={onGenerate} disabled={isGenerating} style={{ marginTop: '2rem' }}>
+        ✨ Generate Concept
